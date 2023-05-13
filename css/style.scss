@@ -1,2 +1,50 @@
 // Reset CSS
 @import "reset.scss";
+
+
+
+// Mixins
+@mixin font ($fs, $lh) {
+	font-size: $fs;
+	line-height: $lh;
+}
+
+@mixin flex ($f, $fd, $g, $ai, $jc) {
+	display: $f;
+	flex-direction: $fd;
+	gap: $g;
+	align-items: $ai;
+	justify-content: $jc;
+}
+
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #F5F5F5;
+	font-size: 18px;
+
+	background: #141414;
+}
+
+
+
+h1 {
+	@include font(26px, 30px);
+	font-weight: 500;
+}
+
+
+
+.header {
+	padding: 30px 15px;
+
+	& > div {
+		@include flex(flex, row, 8px, center, center);
+
+		svg {
+			width: 26px;
+			height: 26px;
+		}
+	}
+}
