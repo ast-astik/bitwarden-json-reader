@@ -74,12 +74,19 @@ body {
 	font-family: "Roboto", sans-serif;
 	color: #F5F5F5;
 	font-size: 18px;
+	line-height: 21px;
 	background: #141414;
 }
 
 h1 {
 	font-size: 26px;
 	line-height: 30px;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: 20px;
+	line-height: 23px;
 	font-weight: 500;
 }
 
@@ -131,7 +138,7 @@ h1 {
 	        align-items: center;
 	-webkit-box-pack: start;
 	    -ms-flex-pack: start;
-	        justify-content: start;
+	        justify-content: flex-start;
 }
 .search svg {
 	height: 25px;
@@ -142,4 +149,50 @@ h1 {
 	line-height: 21px;
 	color: #f5f5f5;
 	background: transparent;
+}
+
+.filter {
+	position: relative;
+	padding-top: 20px;
+}
+.filter__items {
+	margin-top: 10px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	gap: 10px;
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+.filter__items input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+.filter__items input:checked ~ label {
+	color: #1765F2;
+}
+.filter__items label {
+	display: inline-block;
+	padding: 8px 14px;
+	color: #F5F5F5;
+	border: 1px solid #696969;
+	border-radius: 10px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.filter__items label:hover {
+	color: #1765F2;
 }
