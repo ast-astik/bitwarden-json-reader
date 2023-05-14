@@ -43,6 +43,11 @@ h2 {
 	font-weight: 500;
 }
 
+h3 {
+	@include font(18px, 21px);
+	font-weight: 500;
+}
+
 
 
 .header {
@@ -133,5 +138,42 @@ h2 {
 				color: #1765F2;
 			}
 		}
+	}
+}
+
+
+
+.vault-items {
+	padding: 60px 0;
+	@include flex(flex, row,30px 40px, flex-start, flex-start);
+	flex-wrap: wrap;
+}
+
+.vault-item {
+	padding: 19px 29px;
+	@include flex(flex, row, 0, center, space-between);
+	width: calc(50% - 20px);
+
+	background: #242424;
+	border: 1px solid #696969;
+	border-radius: 20px;
+
+	cursor: pointer;
+
+	transition: $anim;
+
+	&__logo-name {
+		@include flex(inline-flex, row, 15px, center, flex-start);
+
+		img {
+			width: 25px;
+			height: 25px;
+
+			object-fit: cover;
+		}
+	}
+
+	&:hover {
+		border-color: #f5f5f5;
 	}
 }
