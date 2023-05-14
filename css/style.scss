@@ -145,14 +145,16 @@ h3 {
 
 .vault-items {
 	padding: 60px 0;
-	@include flex(flex, row,30px 40px, flex-start, flex-start);
+	@include flex(flex, row, 25px, flex-start, flex-start);
 	flex-wrap: wrap;
 }
 
+
+
 .vault-item {
-	padding: 19px 29px;
-	@include flex(flex, row, 0, center, space-between);
-	width: calc(50% - 20px);
+	padding: 11px 19px;
+	@include flex(flex, row, 15px, center, flex-start);
+	width: calc(33.33333% - 17px);
 
 	background: #242424;
 	border: 1px solid #696969;
@@ -162,14 +164,19 @@ h3 {
 
 	transition: $anim;
 
-	&__logo-name {
-		@include flex(inline-flex, row, 15px, center, flex-start);
+	img {
+		width: 25px;
+		height: 25px;
 
-		img {
-			width: 25px;
-			height: 25px;
+		object-fit: cover;
+	}
 
-			object-fit: cover;
+	&__name-login {
+		@include flex(flex, column, 3px, stretch, flex-start);
+
+		span {
+			@include font(16px, 19px);
+			color: #808080;
 		}
 	}
 
