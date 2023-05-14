@@ -147,7 +147,8 @@ h3 {
 			visibility: hidden;
 
 			&:checked ~ label {
-				color: #1765F2;
+				border-color: #f5f5f5;
+				background: #242424;
 			}
 		}
 
@@ -171,7 +172,8 @@ h3 {
 	.filter {
 		&__items {
 			label:hover {
-				color: #1765F2;
+				border-color: #f5f5f5;
+				background: #242424;
 			}
 		}
 	}
