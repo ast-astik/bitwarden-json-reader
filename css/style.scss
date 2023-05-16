@@ -306,19 +306,27 @@ h4 {
 
 	background: rgba(20, 20, 20, 0.8);
 
+	opacity: 0;
+	visibility: hidden;
+
+	transition: $anim;
+
 	&__container {
 		position: relative;
 
 		padding: 20px 15px;
 		max-width: 680px;
 		width: 100%;
-		//max-height: calc(100vh - 80px);
 		max-height: 100%;
 
 		background: #242424;
 		border-radius: 20px;
 
 		overflow-y: auto;
+
+		transform: scale(0);
+
+		transition: $anim;
 	}
 
 	&__close-btn {
@@ -425,5 +433,14 @@ h4 {
 
 		background: url("../img/eye_open.svg") no-repeat;
 		background-size: cover;
+	}
+}
+
+.popup.popup_open {
+	opacity: 1;
+	visibility: visible;
+
+	.popup__container {
+		transform: scale(1);
 	}
 }
