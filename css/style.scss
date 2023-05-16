@@ -140,6 +140,7 @@ h4 {
 
 	&__items {
 		margin-top: 10px;
+		min-height: 39px;
 		@include flex(flex, row, 10px, flex-start, flex-start);
 		flex-wrap: wrap;
 

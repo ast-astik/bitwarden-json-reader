@@ -195,6 +195,7 @@ h4 {
 }
 .filter__items {
 	margin-top: 10px;
+	min-height: 39px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
