@@ -25,7 +25,7 @@
       "folderId": "folder1",
       "type": 1,
       "reprompt": 0,
-      "name": "Test",
+      "name": "GitHub",
       "notes": "Test",
       "favorite": true,
       "fields": [
@@ -58,14 +58,274 @@
         "uris": [
           {
             "match": null,
-            "uri": "test1.com"
+            "uri": "https://github.com/"
           },
           {
             "match": null,
             "uri": "test2.com"
           }
         ],
-        "username": "Test",
+        "username": "astik@ast.com",
+        "password": "Test",
+        "totp": "Test"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "item2",
+      "organizationId": null,
+      "folderId": "folder2",
+      "type": 1,
+      "reprompt": 0,
+      "name": "Microsoft",
+      "notes": "Test",
+      "favorite": true,
+      "fields": [
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 0,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 1,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "false",
+          "type": 2,
+          "linkedId": null
+        },
+        {
+          "name": null,
+          "value": null,
+          "type": 3,
+          "linkedId": 100
+        }
+      ],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.microsoft.com/"
+          },
+          {
+            "match": null,
+            "uri": "test2.com"
+          }
+        ],
+        "username": "astik@ast.com",
+        "password": "Test",
+        "totp": "Test"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "item3",
+      "organizationId": null,
+      "folderId": "folder3",
+      "type": 1,
+      "reprompt": 0,
+      "name": "Google",
+      "notes": "Test",
+      "favorite": true,
+      "fields": [
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 0,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 1,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "false",
+          "type": 2,
+          "linkedId": null
+        },
+        {
+          "name": null,
+          "value": null,
+          "type": 3,
+          "linkedId": 100
+        }
+      ],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.google.com/"
+          },
+          {
+            "match": null,
+            "uri": "test2.com"
+          }
+        ],
+        "username": "astik@ast.com",
+        "password": "Test",
+        "totp": "Test"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "item4",
+      "organizationId": null,
+      "folderId": "folder4",
+      "type": 1,
+      "reprompt": 0,
+      "name": "Instagram",
+      "notes": "Test",
+      "favorite": true,
+      "fields": [
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 0,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 1,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "false",
+          "type": 2,
+          "linkedId": null
+        },
+        {
+          "name": null,
+          "value": null,
+          "type": 3,
+          "linkedId": 100
+        }
+      ],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.instagram.com/"
+          },
+          {
+            "match": null,
+            "uri": "test2.com"
+          }
+        ],
+        "username": "astik@ast.com",
+        "password": "Test",
+        "totp": "Test"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "item5",
+      "organizationId": null,
+      "folderId": "folder1",
+      "type": 1,
+      "reprompt": 0,
+      "name": "Amazon",
+      "notes": "Test",
+      "favorite": true,
+      "fields": [
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 0,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 1,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "false",
+          "type": 2,
+          "linkedId": null
+        },
+        {
+          "name": null,
+          "value": null,
+          "type": 3,
+          "linkedId": 100
+        }
+      ],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.amazon.com/"
+          },
+          {
+            "match": null,
+            "uri": "test2.com"
+          }
+        ],
+        "username": "astik@ast.com",
+        "password": "Test",
+        "totp": "Test"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "item6",
+      "organizationId": null,
+      "folderId": "folder2",
+      "type": 1,
+      "reprompt": 0,
+      "name": "AliExpress",
+      "notes": "Test",
+      "favorite": true,
+      "fields": [
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 0,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "Test",
+          "type": 1,
+          "linkedId": null
+        },
+        {
+          "name": "Test",
+          "value": "false",
+          "type": 2,
+          "linkedId": null
+        },
+        {
+          "name": null,
+          "value": null,
+          "type": 3,
+          "linkedId": 100
+        }
+      ],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.aliexpress.com/"
+          },
+          {
+            "match": null,
+            "uri": "test2.com"
+          }
+        ],
+        "username": "astik@ast.com",
         "password": "Test",
         "totp": "Test"
       },
