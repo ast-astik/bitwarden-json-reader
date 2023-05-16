@@ -2,7 +2,8 @@ const popup = document.querySelector(".popup");
 
 
 
-function openPopup() {
+function openPopup(e) {
+	generatePopup(e);
 	popup.classList.add("popup_open");
 }
 

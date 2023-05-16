@@ -26,7 +26,7 @@
       "type": 1,
       "reprompt": 0,
       "name": "GitHub",
-      "notes": "Test",
+      "notes": "GitHub is an Internet hosting service for software development and version control using Git. It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project.",
       "favorite": true,
       "fields": [
         {
@@ -78,7 +78,7 @@
       "type": 1,
       "reprompt": 0,
       "name": "Microsoft",
-      "notes": "Test",
+      "notes": "Microsoft Corporation is an American multinational technology corporation headquartered in Redmond, Washington. Microsoft's best-known software products are the Windows line of operating systems, the Microsoft Office suite, and the Internet Explorer and Edge web browsers.",
       "favorite": true,
       "fields": [
         {
@@ -130,7 +130,7 @@
       "type": 1,
       "reprompt": 0,
       "name": "Google",
-      "notes": "Test",
+      "notes": "Google LLC is an American multinational technology company focusing on online advertising, search engine technology, cloud computing, computer software, quantum computing, e-commerce, artificial intelligence,[9] and consumer electronics.",
       "favorite": true,
       "fields": [
         {
@@ -182,7 +182,7 @@
       "type": 1,
       "reprompt": 0,
       "name": "Instagram",
-      "notes": "Test",
+      "notes": "Instagram is a photo and video sharing social networking service owned by American company Meta Platforms. The app allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging.",
       "favorite": true,
       "fields": [
         {
@@ -234,7 +234,7 @@
       "type": 1,
       "reprompt": 0,
       "name": "Amazon",
-      "notes": "Test",
+      "notes": "Amazon.com is an American multinational technology company focusing on e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
       "favorite": true,
       "fields": [
         {
@@ -286,7 +286,7 @@
       "type": 1,
       "reprompt": 0,
       "name": "AliExpress",
-      "notes": "Test",
+      "notes": "AliExpress is an online retail service based in China and owned by the Alibaba Group.[1] Launched in 2010,[2][3] it is made up of small businesses in China and other locations, such as Singapore, that offer products to international online buyers.",
       "favorite": true,
       "fields": [
         {
@@ -303,7 +303,7 @@
         },
         {
           "name": "Test",
-          "value": "false",
+          "value": "true",
           "type": 2,
           "linkedId": null
         },
