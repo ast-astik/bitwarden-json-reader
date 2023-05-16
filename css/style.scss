@@ -33,19 +33,24 @@ body {
 
 
 
+h1, h2, h3, h4 {
+	font-weight: 500;
+}
+
 h1 {
 	@include font(26px, 30px);
-	font-weight: 500;
 }
 
 h2 {
 	@include font(20px, 23px);
-	font-weight: 500;
 }
 
 h3 {
 	@include font(18px, 21px);
-	font-weight: 500;
+}
+
+h4 {
+	@include font(12px, 14px);
 }
 
 @media (max-width: 575.5px) {
@@ -285,5 +290,140 @@ h3 {
 		p {
 			padding: 30px 0 60px 0;
 		}
+	}
+}
+
+
+
+.popup {
+	position: fixed;
+	z-index: 10;
+
+	padding: 40px 15px;
+	@include flex(flex, row, 0, center, center);
+	width: 100%;
+	height: 100%;
+
+	background: rgba(20, 20, 20, 0.8);
+
+	&__container {
+		position: relative;
+
+		padding: 20px 15px;
+		max-width: 680px;
+		width: 100%;
+		//max-height: calc(100vh - 80px);
+		max-height: 100%;
+
+		background: #242424;
+		border-radius: 20px;
+
+		overflow-y: auto;
+	}
+
+	&__close-btn {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+
+		width: 25px;
+		height: 25px;
+
+		background: transparent;
+
+		&:after,
+		&:before {
+			content: "";
+
+			position: absolute;
+			top: 11px;
+			left: 0;
+
+			width: 25px;
+			height: 3px;
+
+			background: #f5f5f5;
+			border-radius: 3px;
+		}
+
+		&:after {
+			transform: rotate(45deg);
+		}
+
+		&:before {
+			transform: rotate(-45deg);
+		}
+	}
+
+	&__section {
+
+		&:not(:last-child) {
+			padding-bottom: 25px;
+		}
+
+		h2 {
+			margin-bottom: 12px;
+
+			color: #4F8BFF;
+		}
+
+		article {
+			position: relative;
+
+			padding-bottom: 6px;
+
+			border-bottom: 1px solid #696969;
+
+			&:not(:last-child) {
+				margin-bottom: 14px;
+			}
+
+			h4 {
+				margin-bottom: 3px;
+
+				color: #727272;
+			}
+
+			input {
+				width: 100%;
+
+				@include font(18px, 21px);
+				color: #f5f5f5;
+
+				background: transparent;
+			}
+		}
+	}
+
+	&__input_copy {
+		padding-right: 35px;
+	}
+
+	&__input_password {
+		padding-right: 80px;
+	}
+
+	&__copy-btn {
+		position: absolute;
+		right: 0;
+		top: 6px;
+
+		width: 25px;
+		height: 26.54px;
+
+		background: url("../img/copy.svg") no-repeat;
+		background-size: cover;
+	}
+
+	&__eye-btn {
+		position: absolute;
+		right: 40px;
+		top: 6px;
+
+		width: 25px;
+		height: 25px;
+
+		background: url("../img/eye_open.svg") no-repeat;
+		background-size: cover;
 	}
 }

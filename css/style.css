@@ -78,22 +78,28 @@ body {
 	background: #141414;
 }
 
+h1, h2, h3, h4 {
+	font-weight: 500;
+}
+
 h1 {
 	font-size: 26px;
 	line-height: 30px;
-	font-weight: 500;
 }
 
 h2 {
 	font-size: 20px;
 	line-height: 23px;
-	font-weight: 500;
 }
 
 h3 {
 	font-size: 18px;
 	line-height: 21px;
-	font-weight: 500;
+}
+
+h4 {
+	font-size: 12px;
+	line-height: 14px;
 }
 
 @media (max-width: 575.5px) {
@@ -359,4 +365,112 @@ h3 {
 	.footer p {
 		padding: 30px 0 60px 0;
 	}
+}
+.popup {
+	position: fixed;
+	z-index: 10;
+	padding: 40px 15px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	gap: 0;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	width: 100%;
+	height: 100%;
+	background: rgba(20, 20, 20, 0.8);
+}
+.popup__container {
+	position: relative;
+	padding: 20px 15px;
+	max-width: 680px;
+	width: 100%;
+	max-height: 100%;
+	background: #242424;
+	border-radius: 20px;
+	overflow-y: auto;
+}
+.popup__close-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 25px;
+	height: 25px;
+	background: transparent;
+}
+.popup__close-btn:after, .popup__close-btn:before {
+	content: "";
+	position: absolute;
+	top: 11px;
+	left: 0;
+	width: 25px;
+	height: 3px;
+	background: #f5f5f5;
+	border-radius: 3px;
+}
+.popup__close-btn:after {
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+.popup__close-btn:before {
+	-webkit-transform: rotate(-45deg);
+	        transform: rotate(-45deg);
+}
+.popup__section:not(:last-child) {
+	padding-bottom: 25px;
+}
+.popup__section h2 {
+	margin-bottom: 12px;
+	color: #4F8BFF;
+}
+.popup__section article {
+	position: relative;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #696969;
+}
+.popup__section article:not(:last-child) {
+	margin-bottom: 14px;
+}
+.popup__section article h4 {
+	margin-bottom: 3px;
+	color: #727272;
+}
+.popup__section article input {
+	width: 100%;
+	font-size: 18px;
+	line-height: 21px;
+	color: #f5f5f5;
+	background: transparent;
+}
+.popup__input_copy {
+	padding-right: 35px;
+}
+.popup__input_password {
+	padding-right: 80px;
+}
+.popup__copy-btn {
+	position: absolute;
+	right: 0;
+	top: 6px;
+	width: 25px;
+	height: 26.54px;
+	background: url("../img/copy.svg") no-repeat;
+	background-size: cover;
+}
+.popup__eye-btn {
+	position: absolute;
+	right: 40px;
+	top: 6px;
+	width: 25px;
+	height: 25px;
+	background: url("../img/eye_open.svg") no-repeat;
+	background-size: cover;
 }
