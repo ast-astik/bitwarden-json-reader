@@ -57,6 +57,8 @@ function generateVaultItems() {
 															</div>
 														</article>`);
 	});
+
+	vaultItemsLoader("none");
 }
 
 function generatePopup(e) {
@@ -144,6 +146,101 @@ function resetPopup() {
 	allOld.forEach(article => {
 		article.remove();
 	});
+}
+
+function search(input) {
+
+	disableFilters();
+	
+	let searchQuery;
+	if (input.value) {
+		searchQuery = input.value;
+	} else {
+		allVaultItemsDisplay("");
+		noVaultItems("none");
+		return;
+	}
+
+	allVaultItemsDisplay("none");
+	vaultItemsLoader("");
+
+	let foundItems = vault.items.filter(item => {
+
+		function isMatch(field) {
+			return field.toLowerCase().includes(searchQuery.toLowerCase());
+		}
+
+		function findInArray(array, fieldName) {
+			if (array) {
+
+				let foundField = array.find(object => {
+					if (object[fieldName] && isMatch(object[fieldName])) return true;
+				});
+
+				if (foundField) return true;
+			}
+		}
+
+		// Check "name" field
+		if (item.name && isMatch(item.name)) return true;
+
+		// Check "notes" field
+		if (item.notes && isMatch(item.notes)) return true;
+
+		// Check "login.username" field
+		if (item.login &&
+			item.login.username &&
+			isMatch(item.login.username)) return true;
+
+		// Check "fields.name" field
+		if (findInArray(item.fields, "name")) return true;
+
+		// Check "fields.value" field
+		if (findInArray(item.fields, "value")) return true;
+
+		// Check "login.uris.uri" field
+		if (findInArray(item.login.uris, "uri")) return true;
+	});
+
+	vaultItemsLoader("none");
+
+	if (foundItems.length === 0) {
+		allVaultItemsDisplay("none");
+		noVaultItems("", "There are no items that match the search");
+	} else {
+		let foundItemsIds = foundItems.map(item => item.id);
+		noVaultItems("none");
+		showFilteredVaultItems(foundItemsIds, "id");
+	}
+}
+
+function disableFilters() {
+	let checkedFilter = document.querySelector('[name="filters"]:checked');
+	if (checkedFilter) checkedFilter.checked = false;
+}
+
+function allVaultItemsDisplay(displayStyle) {
+	document.querySelectorAll(".vault-items article").forEach(item => {
+		item.style.display = displayStyle;
+	});
+}
+
+function showFilteredVaultItems(array, type) {
+	if (type == "id") {
+		array.forEach(id => {
+			document.querySelector(`[data-id="${id}"]`).style.display = "";
+		});
+	}
+}
+
+function noVaultItems(displayStyle, text) {
+	let noVaultItemsElem = document.querySelector(".vault-items__no-items");
+	noVaultItemsElem.style.display = displayStyle;
+	if (text) noVaultItemsElem.textContent = text;
+}
+
+function vaultItemsLoader(displayStyle) {
+	document.querySelector(".vault-items__loading").style.display = displayStyle;
 }
 
 function setFilter() {

@@ -259,6 +259,19 @@ h4 {
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
 }
+.vault-items__no-items {
+	width: 100%;
+	text-align: center;
+	font-style: italic;
+}
+.vault-items__loading {
+	width: 100%;
+	text-align: center;
+}
+.vault-items__loading img {
+	width: 90px;
+	height: 90px;
+}
 
 @media (max-width: 1099.5px) {
 	.vault-items {
