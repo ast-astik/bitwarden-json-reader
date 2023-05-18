@@ -156,11 +156,13 @@ function search(input) {
 	if (input.value) {
 		searchQuery = input.value;
 	} else {
+		searchClearBtnVisibility(0);
 		allVaultItemsDisplay("");
 		noVaultItems("none");
 		return;
 	}
 
+	searchClearBtnVisibility(1);
 	allVaultItemsDisplay("none");
 	vaultItemsLoader("");
 
@@ -241,6 +243,19 @@ function noVaultItems(displayStyle, text) {
 
 function vaultItemsLoader(displayStyle) {
 	document.querySelector(".vault-items__loading").style.display = displayStyle;
+}
+
+function searchClearBtnVisibility(value) {
+	let btn = document.querySelector(".search__clear-btn");
+
+	value ? btn.classList.add("search__clear-btn_visible") : btn.classList.remove("search__clear-btn_visible");
+}
+
+function clearSearchInput() {
+	document.querySelector("#search-input").value = "";
+	allVaultItemsDisplay("");
+	noVaultItems("none");
+	searchClearBtnVisibility(0);
 }
 
 function setFilter() {

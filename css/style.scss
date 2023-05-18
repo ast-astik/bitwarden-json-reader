@@ -21,6 +21,32 @@ $anim: all 0.3s ease;
 	justify-content: $jc;
 }
 
+@mixin cross-btn($bg) {
+	&:after,
+	&:before {
+		content: "";
+
+		position: absolute;
+		top: 11px;
+		left: 0;
+
+		width: 25px;
+		height: 3px;
+
+		background: $bg;
+
+		border-radius: 3px;
+	}
+
+	&:after {
+		transform: rotate(45deg);
+	}
+
+	&:before {
+		transform: rotate(-45deg);
+	}
+}
+
 
 
 body {
@@ -109,6 +135,8 @@ h4 {
 	border: 1px solid #696969;
 	border-radius: 15px;
 
+	cursor: text;
+
 	@include flex(flex, row, 15px, center, flex-start);
 
 	svg {
@@ -116,12 +144,36 @@ h4 {
 	}
 
 	input {
-		width: calc(100% - 40px);
+		width: calc(100% - 80px);
 
 		@include font(18px, 21px);
 		color: #f5f5f5;
 
 		background: transparent;
+	}
+
+	&__clear-btn {
+		position: relative;
+
+		width: 25px;
+		height: 25px;
+
+		background: transparent;
+
+		transform: rotate(-110deg);
+
+		@include cross-btn(#696969);
+
+		transition: $anim;
+
+		visibility: hidden;
+		opacity: 0;
+
+		&_visible {
+			transform: rotate(0deg);
+			visibility: visible;
+			opacity: 1;
+		}
 	}
 }
 
@@ -356,28 +408,7 @@ h4 {
 
 		background: transparent;
 
-		&:after,
-		&:before {
-			content: "";
-
-			position: absolute;
-			top: 11px;
-			left: 0;
-
-			width: 25px;
-			height: 3px;
-
-			background: #f5f5f5;
-			border-radius: 3px;
-		}
-
-		&:after {
-			transform: rotate(45deg);
-		}
-
-		&:before {
-			transform: rotate(-45deg);
-		}
+		@include cross-btn(#f5f5f5);
 	}
 
 	&__section {
