@@ -11,6 +11,13 @@ function closePopup() {
 	popup.classList.remove("popup_open");
 }
 
+function setVH() {
+	let vh100 = window.innerHeight;
+	let vh1 = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh100', `${vh100}px`);
+	document.documentElement.style.setProperty('--vh1', `${vh1}px`);
+};
+
 
 
 // Closing the popup when clicking on the background 
@@ -31,4 +38,12 @@ document.addEventListener("mousedown", event => {
 
 		document.addEventListener('mouseup', checkMouseUp);
 	}
+});
+
+window.addEventListener("resize", event => {
+	setVH();
+});
+
+window.addEventListener('load', () => {
+	setVH();
 });

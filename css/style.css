@@ -140,6 +140,7 @@ h4 {
 .main {
 	padding: 10px 40px 0 40px;
 	max-width: 1480px;
+	min-height: calc(var(--vh100, 100vh) - 90px - 83px);
 	margin: 0 auto;
 }
 
@@ -151,6 +152,7 @@ h4 {
 @media (max-width: 575.5px) {
 	.main {
 		padding: 10px 15px 0 15px;
+		min-height: calc(var(--vh100, 100vh) - 77px - 112px);
 	}
 }
 .search {
