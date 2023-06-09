@@ -84,7 +84,7 @@ function generatePopup(e) {
 		popupSection.uris.insertAdjacentHTML("beforeend", `<article>
 															<h4>Website</h4>
 															<input class="popup__input_copy" type="text" value="${uri.uri}" readonly>
-															<button class="popup__copy-btn"></button>
+															<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>
 														</article>`);
 	});
 
@@ -101,7 +101,7 @@ function generatePopup(e) {
 			fieldInput = `<input class="popup__input_copy" type="text" value="${field.value}" readonly>`,
 			fieldInputHidden = `<input class="popup__input_password" type="password" value="${field.value}" readonly>`,
 			fieldEyeBtn = `<button class="popup__eye-btn"></button>`,
-			fieldCopyBtn = `<button class="popup__copy-btn"></button>`;
+			fieldCopyBtn = `<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>`;
 
 		if (field.type === 0) { // text
 			fieldTemplate =`<article>
@@ -256,6 +256,19 @@ function clearSearchInput() {
 	allVaultItemsDisplay("");
 	noVaultItems("none");
 	searchClearBtnVisibility(0);
+}
+
+function copyInputValue(btn) {
+	let copyText = btn.parentNode.querySelector("input").value;
+	navigator.clipboard.writeText(copyText);
+	inputBtnClicked(btn);
+}
+
+function inputBtnClicked(btn) {
+	btn.style.opacity = 0.5;
+	setTimeout(() => {
+		btn.style.opacity = 1;
+	}, 450);
 }
 
 function setFilter() {

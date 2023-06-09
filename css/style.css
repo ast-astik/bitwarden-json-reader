@@ -523,6 +523,8 @@ h4 {
 	height: 26.54px;
 	background: url("../img/copy.svg") no-repeat;
 	background-size: cover;
+	-webkit-transition: all 0.15s linear;
+	transition: all 0.15s linear;
 }
 .popup__eye-btn {
 	position: absolute;
