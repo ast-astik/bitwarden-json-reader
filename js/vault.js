@@ -100,7 +100,7 @@ function generatePopup(e) {
 			fieldName = `<h4>${field.name}</h4>`;
 			fieldInput = `<input class="popup__input_copy" type="text" value="${field.value}" readonly>`,
 			fieldInputHidden = `<input class="popup__input_password" type="password" value="${field.value}" readonly>`,
-			fieldEyeBtn = `<button class="popup__eye-btn"></button>`,
+			fieldEyeBtn = `<button class="popup__eye-btn" onClick="showPassword(this);"></button>`,
 			fieldCopyBtn = `<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>`;
 
 		if (field.type === 0) { // text
@@ -265,10 +265,38 @@ function copyInputValue(btn) {
 }
 
 function inputBtnClicked(btn) {
-	btn.style.opacity = 0.5;
+	btn.style.opacity = 0;
+	btn.style.transform = "scale(0)";
+
 	setTimeout(() => {
+
 		btn.style.opacity = 1;
-	}, 450);
+		btn.style.transform = "scale(1)";
+	}, 100);
+}
+
+function showPassword(btn) {
+	let input = btn.parentNode.querySelector("input");
+	if (input.type == "password") {
+		input.type = "text";
+		changeIcon("add");
+	} else {
+		input.type = "password";
+		changeIcon("remove");
+	}
+
+	function changeIcon(action) {
+
+		inputBtnClicked(btn);
+
+		setTimeout(() => {
+			if (action == "remove") {
+				btn.classList.remove("close");
+			} else {
+				btn.classList.add("close");
+			}
+		}, 100);
+	}
 }
 
 function setFilter() {

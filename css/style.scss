@@ -470,7 +470,7 @@ h4 {
 		background: url("../img/copy.svg") no-repeat;
 		background-size: cover;
 
-		transition: all 0.15s linear;
+		transition: all 0.1s linear;
 	}
 
 	&__eye-btn {
@@ -482,6 +482,12 @@ h4 {
 		height: 25px;
 
 		background: url("../img/eye_open.svg") no-repeat;
+		background-size: cover;
+
+		transition: all 0.1s linear;
+	}
+	&__eye-btn.close {
+		background: url("../img/eye_close.svg") no-repeat;
 		background-size: cover;
 	}
 }
