@@ -517,6 +517,16 @@ h4 {
 .popup__input_password {
 	padding-right: 80px;
 }
+.popup__input_uri {
+	display: inline-block;
+	max-width: calc(100% - 35px);
+	font-size: 18px;
+	line-height: 21px;
+	color: #f5f5f5;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
 .popup__copy-btn {
 	position: absolute;
 	right: 0;

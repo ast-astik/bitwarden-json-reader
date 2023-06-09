@@ -83,7 +83,7 @@ function generatePopup(e) {
 	item.login.uris.forEach(uri => {
 		popupSection.uris.insertAdjacentHTML("beforeend", `<article>
 															<h4>Website</h4>
-															<input class="popup__input_copy" type="text" value="${uri.uri}" readonly>
+															<a href="${uri.uri}" target="_blank" class="popup__input_uri">${uri.uri}</a>
 															<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>
 														</article>`);
 	});
@@ -259,7 +259,12 @@ function clearSearchInput() {
 }
 
 function copyInputValue(btn) {
-	let copyText = btn.parentNode.querySelector("input").value;
+	let copyText;
+	if (btn.parentNode.querySelector("input")) {
+		copyText = btn.parentNode.querySelector("input").value;
+	} else {
+		copyText = btn.parentNode.querySelector("a").textContent;
+	}
 	navigator.clipboard.writeText(copyText);
 	inputBtnClicked(btn);
 }

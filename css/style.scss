@@ -461,6 +461,18 @@ h4 {
 		padding-right: 80px;
 	}
 
+	&__input_uri {
+		display: inline-block;
+		max-width: calc(100% - 35px);
+
+		@include font(18px, 21px);
+		color: #f5f5f5;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		 overflow: hidden;
+	}
+
 	&__copy-btn {
 		position: absolute;
 		right: 0;
