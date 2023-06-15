@@ -1,11 +1,22 @@
 let vault;
 
-fetch('json/vault.json')
-	.then(response => response.json())
-	.then(data => {
-		vault = data;
-		generateElemsFromJSON();
-	});
+function readJSONfile() {
+	fetch('json/vault.json')
+		.then(response => response.json())
+		.then(data => {
+			vault = data;
+			generateElemsFromJSON();
+		})
+		.catch(error => {
+			document.querySelector(".popup-error").classList.add("popup_open");
+		});
+}
+readJSONfile();
+
+function rereadJSONfile() {
+	document.querySelector(".popup-error").classList.remove("popup_open");
+	readJSONfile();
+}
 
 
 

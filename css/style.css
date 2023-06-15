@@ -428,7 +428,7 @@ h4 {
 		padding: 30px 0 60px 0;
 	}
 }
-.popup {
+.popup-error, .popup {
 	position: fixed;
 	z-index: 10;
 	padding: 40px 15px;
@@ -454,7 +454,8 @@ h4 {
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
-.popup__container {
+
+.popup-error__container, .popup__container {
 	position: relative;
 	padding: 20px 15px;
 	max-width: 680px;
@@ -468,6 +469,7 @@ h4 {
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
+
 .popup__close-btn {
 	position: absolute;
 	top: 10px;
@@ -568,6 +570,47 @@ h4 {
 	visibility: visible;
 }
 .popup.popup_open .popup__container {
+	-webkit-transform: scale(1);
+	        transform: scale(1);
+}
+
+.popup-error__container {
+	text-align: center;
+}
+.popup-error__container h2 {
+	color: red;
+}
+.popup-error__container p {
+	margin: 12px 0;
+	font-size: 18px;
+	line-height: 21px;
+	color: #f5f5f5;
+}
+.popup-error__container button {
+	display: inline-block;
+	padding: 8px 14px;
+	color: #F5F5F5;
+	font-size: 18px;
+	line-height: 21px;
+	background: transparent;
+	border: 1px solid #696969;
+	border-radius: 10px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+	.popup-error__container button:hover {
+		border-color: #f5f5f5;
+		background: #303030;
+	}
+}
+.popup-error.popup_open {
+	opacity: 1;
+	visibility: visible;
+}
+.popup-error.popup_open .popup-error__container {
 	-webkit-transform: scale(1);
 	        transform: scale(1);
 }
