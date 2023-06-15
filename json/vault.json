@@ -52,34 +52,8 @@
       "type": 1,
       "reprompt": 0,
       "name": "Microsoft",
-      "notes": "Microsoft Corporation is an American multinational technology corporation headquartered in Redmond, Washington. Microsoft's best-known software products are the Windows line of operating systems, the Microsoft Office suite, and the Internet Explorer and Edge web browsers.",
+      "notes": null,
       "favorite": true,
-      "fields": [
-        {
-          "name": "Test",
-          "value": "Test",
-          "type": 0,
-          "linkedId": null
-        },
-        {
-          "name": "Test",
-          "value": "Test",
-          "type": 1,
-          "linkedId": null
-        },
-        {
-          "name": "Test",
-          "value": "false",
-          "type": 2,
-          "linkedId": null
-        },
-        {
-          "name": null,
-          "value": null,
-          "type": 3,
-          "linkedId": 100
-        }
-      ],
       "login": {
         "uris": [
           {
@@ -156,43 +130,13 @@
       "type": 1,
       "reprompt": 0,
       "name": "Instagram",
-      "notes": "Instagram is a photo and video sharing social networking service owned by American company Meta Platforms. The app allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging.",
+      "notes": null,
       "favorite": true,
-      "fields": [
-        {
-          "name": "Test",
-          "value": "Test",
-          "type": 0,
-          "linkedId": null
-        },
-        {
-          "name": "Test",
-          "value": "Test",
-          "type": 1,
-          "linkedId": null
-        },
-        {
-          "name": "Test",
-          "value": "false",
-          "type": 2,
-          "linkedId": null
-        },
-        {
-          "name": null,
-          "value": null,
-          "type": 3,
-          "linkedId": 100
-        }
-      ],
       "login": {
         "uris": [
           {
             "match": null,
             "uri": "https://www.instagram.com/"
-          },
-          {
-            "match": null,
-            "uri": "test2.com"
           }
         ],
         "username": "astik@ast.com",
@@ -208,48 +152,12 @@
       "type": 1,
       "reprompt": 0,
       "name": "Amazon",
-      "notes": "Amazon.com is an American multinational technology company focusing on e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
+      "notes": null,
       "favorite": true,
-      "fields": [
-        {
-          "name": "Test",
-          "value": "Test",
-          "type": 0,
-          "linkedId": null
-        },
-        {
-          "name": "Test",
-          "value": "Test",
-          "type": 1,
-          "linkedId": null
-        },
-        {
-          "name": "Test",
-          "value": "false",
-          "type": 2,
-          "linkedId": null
-        },
-        {
-          "name": null,
-          "value": null,
-          "type": 3,
-          "linkedId": 100
-        }
-      ],
       "login": {
-        "uris": [
-          {
-            "match": null,
-            "uri": "https://www.amazon.com/"
-          },
-          {
-            "match": null,
-            "uri": "test2.com"
-          }
-        ],
-        "username": "astik@ast.com",
-        "password": "Test",
-        "totp": "Test"
+        "username": null,
+        "password": null,
+        "totp": null
       },
       "collectionIds": null
     },

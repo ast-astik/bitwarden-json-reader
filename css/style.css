@@ -382,6 +382,7 @@ h4 {
 	        justify-content: flex-start;
 }
 .vault-item__name-login span {
+	min-height: 19px;
 	font-size: 16px;
 	line-height: 19px;
 	color: #808080;
@@ -493,8 +494,8 @@ h4 {
 	-webkit-transform: rotate(-45deg);
 	        transform: rotate(-45deg);
 }
-.popup__section:not(:last-child) {
-	padding-bottom: 25px;
+.popup__section:not(:nth-child(2)) {
+	padding-top: 25px;
 }
 .popup__section h2 {
 	margin-bottom: 12px;
@@ -505,8 +506,8 @@ h4 {
 	padding-bottom: 6px;
 	border-bottom: 1px solid #696969;
 }
-.popup__section article:not(:last-child) {
-	margin-bottom: 14px;
+.popup__section article:not(:nth-child(2)) {
+	margin-top: 14px;
 }
 .popup__section article h4 {
 	margin-bottom: 3px;

@@ -315,6 +315,8 @@ h4 {
 		@include flex(flex, column, 3px, stretch, flex-start);
 
 		span {
+			min-height: 19px;
+
 			@include font(16px, 19px);
 			color: #808080;
 		}
@@ -423,8 +425,8 @@ h4 {
 
 	&__section {
 
-		&:not(:last-child) {
-			padding-bottom: 25px;
+		&:not(:nth-child(2)) {
+			padding-top: 25px;
 		}
 
 		h2 {
@@ -440,8 +442,8 @@ h4 {
 
 			border-bottom: 1px solid #696969;
 
-			&:not(:last-child) {
-				margin-bottom: 14px;
+			&:not(:nth-child(2)) {
+				margin-top: 14px;
 			}
 
 			h4 {

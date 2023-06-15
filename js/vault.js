@@ -49,11 +49,14 @@ function generateVaultItems() {
 	vault.items.forEach( (item) => {
 
 		let faviconSRC;
-		if (navigator.onLine) {
+		if (navigator.onLine && item.login.uris && item.login.uris.length > 0) {
 			faviconSRC = `http://www.google.com/s2/favicons?domain=${item.login.uris[0].uri}`;
 		} else {
 			faviconSRC = `img/nofavicon.svg`;
 		}
+
+		let itemLoginUsername;
+		item.login.username == null ? itemLoginUsername = "" : itemLoginUsername = item.login.username;
 
 		let itemFolderId;
 		item.folderId == null ? itemFolderId = "" : itemFolderId = item.folderId;
@@ -62,7 +65,7 @@ function generateVaultItems() {
 															<img src="${faviconSRC}" alt="Logo">
 															<div class="vault-item__name-login">	
 																<h3>${item.name}</h3>
-																<span>${item.login.username}</span>
+																<span>${itemLoginUsername}</span>
 															</div>
 														</article>`);
 	});
@@ -81,7 +84,12 @@ function generatePopup(e) {
 
 	// Setting values from item to the "Item information" section
 	function itemInfoInput(name, value) {
-		document.querySelector(`#popup-input-${name}`).value = value;
+		if (value == null) {
+			document.querySelector(`#popup-input-${name}`).parentNode.style.display = "none";
+		} else {
+			document.querySelector(`#popup-input-${name}`).parentNode.style.display = "";
+			document.querySelector(`#popup-input-${name}`).value = value;
+		}
 	}
 	itemInfoInput("name", item.name);
 	itemInfoInput("username", item.login.username);
@@ -89,21 +97,34 @@ function generatePopup(e) {
 
 
 	// Setting values from item to the "URIs" section
-	item.login.uris.forEach(uri => {
-		popupSection.uris.insertAdjacentHTML("beforeend", `<article>
-															<h4>Website</h4>
-															<a href="${uri.uri}" target="_blank" class="popup__input_uri">${uri.uri}</a>
-															<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>
-														</article>`);
-	});
+	if (item.login.uris && item.login.uris.length > 0) {
+		popupSection.uris.style.display = "";
+		item.login.uris.forEach(uri => {
+			popupSection.uris.insertAdjacentHTML("beforeend", `<article>
+																<h4>Website</h4>
+																<a href="${uri.uri}" target="_blank" class="popup__input_uri">${uri.uri}</a>
+																<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>
+															</article>`);
+		});
+	} else {
+		popupSection.uris.style.display = "none";
+	}
+		
 
 
 	// Setting value from item to the "Notes" section
-	popupSection.notes.querySelector("p").textContent = item.notes;
+	if (item.notes == null) {
+		popupSection.notes.style.display = "none";
+	} else {
+		popupSection.notes.style.display = "";
+		popupSection.notes.querySelector("p").textContent = item.notes;
+	}
+	
 
 
 	// Setting values from item to the "Custom fields" section
 	if (item.fields) {
+		popupSection.customFields.style.display = "";
 		item.fields.forEach(field => {
 
 			let fieldTemplate,
@@ -145,6 +166,8 @@ function generatePopup(e) {
 
 			popupSection.customFields.insertAdjacentHTML("beforeend", fieldTemplate);
 		});
+	} else {
+		popupSection.customFields.style.display = "none";
 	}
 		
 }
