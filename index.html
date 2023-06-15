@@ -105,23 +105,23 @@
 
 					<ul class="filter__items">
 
-						<li class="filter__item">
-							<input type="radio" name="filters" id="type1">
+						<li class="filter__item" data-id="T_LOGIN">
+							<input type="radio" name="filters" id="type1" disabled>
 							<label for="type1">Login</label>
 						</li>
 
-						<li class="filter__item">
-							<input type="radio" name="filters" id="type2">
+						<li class="filter__item" data-id="T_CARD">
+							<input type="radio" name="filters" id="type2" disabled>
 							<label for="type2">Card</label>
 						</li>
 
-						<li class="filter__item">
-							<input type="radio" name="filters" id="type3">
+						<li class="filter__item" data-id="T_IDENTY">
+							<input type="radio" name="filters" id="type3" disabled>
 							<label for="type3">Identy</label>
 						</li>
 
-						<li class="filter__item">
-							<input type="radio" name="filters" id="type4">
+						<li class="filter__item" data-id="T_SECURE-NOTE">
+							<input type="radio" name="filters" id="type4" disabled>
 							<label for="type4">Secure note</label>
 						</li>
 
@@ -133,7 +133,10 @@
 					<h2>Folders</h2>
 
 					<ul class="filter__items">
-
+						<li class="filter__item" data-id="NO_FOLDER" onClick="setFilter(this);">
+							<input type="radio" name="filters" id="folderNO">
+							<label for="folderNO">No Folder</label>
+						</li>
 					</ul>
 
 				</section>

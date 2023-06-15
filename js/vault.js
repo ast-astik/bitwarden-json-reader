@@ -29,10 +29,17 @@ function generateFoldersFilter() {
 	let filterContainer = document.querySelector("#filter-folders .filter__items");
 
 	vault.folders.forEach( (folder, index) => {
-		filterContainer.insertAdjacentHTML("beforeend",`<li class="filter__item" data-id="${folder.id}" onClick="setFilter();">
+		filterContainer.insertAdjacentHTML("beforeend",`<li class="filter__item" data-id="${folder.id}" onClick="setFilter(this);">
 															<input type="radio" name="filters" id="folder${index}">
-															<label for="folder${index}">${folder.name}</label>
+															<label for="folder${index}" onclick="event.stopPropagation();">${folder.name}</label>
 														</li>`);
+	});
+
+	// Fix for double invocation of the setFilter(); function
+	document.querySelectorAll(".filter__item label").forEach(filterItem => {
+		filterItem.addEventListener("click", event => {
+			event.stopPropagation();
+		});
 	});
 }
 
@@ -42,14 +49,16 @@ function generateVaultItems() {
 	vault.items.forEach( (item) => {
 
 		let faviconSRC;
-
 		if (navigator.onLine) {
 			faviconSRC = `http://www.google.com/s2/favicons?domain=${item.login.uris[0].uri}`;
 		} else {
 			faviconSRC = `img/nofavicon.svg`;
 		}
 
-		itemsContainer.insertAdjacentHTML("beforeend",`<article class="vault-item" data-id="${item.id}" data-folder-id="${item.folderId}" onClick="openPopup(this);">
+		let itemFolderId;
+		item.folderId == null ? itemFolderId = "" : itemFolderId = item.folderId;
+
+		itemsContainer.insertAdjacentHTML("beforeend",`<article class="vault-item" data-id="${item.id}" data-folder_id="${itemFolderId}" onClick="openPopup(this);">
 															<img src="${faviconSRC}" alt="Logo">
 															<div class="vault-item__name-login">	
 																<h3>${item.name}</h3>
@@ -94,47 +103,50 @@ function generatePopup(e) {
 
 
 	// Setting values from item to the "Custom fields" section
-	item.fields.forEach(field => {
+	if (item.fields) {
+		item.fields.forEach(field => {
 
-		let fieldTemplate,
-			fieldName = `<h4>${field.name}</h4>`;
-			fieldInput = `<input class="popup__input_copy" type="text" value="${field.value}" readonly>`,
-			fieldInputHidden = `<input class="popup__input_password" type="password" value="${field.value}" readonly>`,
-			fieldEyeBtn = `<button class="popup__eye-btn" onClick="showPassword(this);"></button>`,
-			fieldCopyBtn = `<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>`;
+			let fieldTemplate,
+				fieldName = `<h4>${field.name}</h4>`;
+				fieldInput = `<input class="popup__input_copy" type="text" value="${field.value}" readonly>`,
+				fieldInputHidden = `<input class="popup__input_password" type="password" value="${field.value}" readonly>`,
+				fieldEyeBtn = `<button class="popup__eye-btn" onClick="showPassword(this);"></button>`,
+				fieldCopyBtn = `<button class="popup__copy-btn" onClick="copyInputValue(this);"></button>`;
 
-		if (field.type === 0) { // text
-			fieldTemplate =`<article>
-								${fieldName}
-								${fieldInput}
-								${fieldCopyBtn}
-							</article>`;
-		} else if (field.type === 1) { // hidden
-			fieldTemplate =`<article>
-								${fieldName}
-								${fieldInputHidden}
-								${fieldEyeBtn}
-								${fieldCopyBtn}
-							</article>`;
-		} else if (field.type === 2) { // Boolean
-			
-			let color;
-			if (field.value == "false") {
-				color = "#FF0000";
+			if (field.type === 0) { // text
+				fieldTemplate =`<article>
+									${fieldName}
+									${fieldInput}
+									${fieldCopyBtn}
+								</article>`;
+			} else if (field.type === 1) { // hidden
+				fieldTemplate =`<article>
+									${fieldName}
+									${fieldInputHidden}
+									${fieldEyeBtn}
+									${fieldCopyBtn}
+								</article>`;
+			} else if (field.type === 2) { // Boolean
+				
+				let color;
+				if (field.value == "false") {
+					color = "#FF0000";
+				} else {
+					color = "#008000";
+				}
+
+				fieldTemplate =`<article>
+									${fieldName}
+									<input type="text" style="color: ${color};" value="${field.value}" readonly>
+								</article>`;
 			} else {
-				color = "#008000";
+				return;
 			}
 
-			fieldTemplate =`<article>
-								${fieldName}
-								<input type="text" style="color: ${color};" value="${field.value}" readonly>
-							</article>`;
-		} else {
-			return;
-		}
-
-		popupSection.customFields.insertAdjacentHTML("beforeend", fieldTemplate);
-	});
+			popupSection.customFields.insertAdjacentHTML("beforeend", fieldTemplate);
+		});
+	}
+		
 }
 
 function resetPopup() {
@@ -219,6 +231,7 @@ function search(input) {
 function disableFilters() {
 	let checkedFilter = document.querySelector('[name="filters"]:checked');
 	if (checkedFilter) checkedFilter.checked = false;
+	currentFilter = undefined;
 }
 
 function allVaultItemsDisplay(displayStyle) {
@@ -304,6 +317,41 @@ function showPassword(btn) {
 	}
 }
 
-function setFilter() {
+let currentFilter;
+function setFilter(btn) {
 
+	let id = btn.dataset.id;
+
+	noVaultItems("none");
+	document.querySelector("#search-input").value = "";
+	searchClearBtnVisibility(0);
+
+	if (currentFilter) {
+		if (currentFilter == id) {
+			disableFilters();
+			document.querySelectorAll(".vault-item").forEach(item => {
+				item.style.display = "";
+			});
+			return;
+		} else {
+			currentFilter = id;
+		}
+	} else {
+		currentFilter = id;
+	}
+
+	if (id == "NO_FOLDER") id = "";
+	let itemsWithId = document.querySelectorAll(`.vault-item[data-folder_id="${id}"]`);
+
+	document.querySelectorAll(".vault-item").forEach(item => {
+		if (item.dataset.folder_id == id) {
+			item.style.display = "";
+		} else {
+			item.style.display = "none";
+		}
+	});
+
+	if (itemsWithId.length == 0) {
+		noVaultItems("", "There are no items that match the filter");
+	}
 }
